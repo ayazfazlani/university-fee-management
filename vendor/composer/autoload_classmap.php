@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Exports\\ClassVouchersExport' => $baseDir . '/app/Exports/ClassVouchersExport.php',
+    'App\\Exports\\ClassVouchersPdfExport' => $baseDir . '/app/Exports/ClassVouchersPdfExport.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Middleware\\ForceJsonEncoding' => $baseDir . '/app/Http/Middleware/ForceJsonEncoding.php',
     'App\\Livewire\\Admin\\Permissions' => $baseDir . '/app/Livewire/Admin/Permissions.php',
@@ -31,7 +32,6 @@ return array(
     'App\\Livewire\\Pages\\Reports' => $baseDir . '/app/Livewire/Pages/Reports.php',
     'App\\Livewire\\Pages\\Sectiones' => $baseDir . '/app/Livewire/Pages/Sectiones.php',
     'App\\Livewire\\Pages\\Semesters' => $baseDir . '/app/Livewire/Pages/Semesters.php',
-    'App\\Livewire\\Pages\\Students' => $baseDir . '/app/Livewire/Pages/Students.php',
     'App\\Livewire\\Pages\\Voucheres' => $baseDir . '/app/Livewire/Pages/Voucheres.php',
     'App\\Models\\Classes' => $baseDir . '/app/Models/Classes.php',
     'App\\Models\\FeeRecord' => $baseDir . '/app/Models/FeeRecord.php',
@@ -42,6 +42,7 @@ return array(
     'App\\Models\\Student' => $baseDir . '/app/Models/Student.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Voucher' => $baseDir . '/app/Models/Voucher.php',
+    'App\\Observers\\UserObserver' => $baseDir . '/app/Observers/UserObserver.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\View\\Components\\pdf\\installment' => $baseDir . '/app/View/Components/pdf/installment.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

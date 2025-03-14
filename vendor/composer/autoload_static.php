@@ -613,6 +613,7 @@ class ComposerStaticInitc4703b4cc9fdc21eb570bad8224f5ed2
 
     public static $classMap = array (
         'App\\Exports\\ClassVouchersExport' => __DIR__ . '/../..' . '/app/Exports/ClassVouchersExport.php',
+        'App\\Exports\\ClassVouchersPdfExport' => __DIR__ . '/../..' . '/app/Exports/ClassVouchersPdfExport.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Middleware\\ForceJsonEncoding' => __DIR__ . '/../..' . '/app/Http/Middleware/ForceJsonEncoding.php',
         'App\\Livewire\\Admin\\Permissions' => __DIR__ . '/../..' . '/app/Livewire/Admin/Permissions.php',
@@ -637,7 +638,6 @@ class ComposerStaticInitc4703b4cc9fdc21eb570bad8224f5ed2
         'App\\Livewire\\Pages\\Reports' => __DIR__ . '/../..' . '/app/Livewire/Pages/Reports.php',
         'App\\Livewire\\Pages\\Sectiones' => __DIR__ . '/../..' . '/app/Livewire/Pages/Sectiones.php',
         'App\\Livewire\\Pages\\Semesters' => __DIR__ . '/../..' . '/app/Livewire/Pages/Semesters.php',
-        'App\\Livewire\\Pages\\Students' => __DIR__ . '/../..' . '/app/Livewire/Pages/Students.php',
         'App\\Livewire\\Pages\\Voucheres' => __DIR__ . '/../..' . '/app/Livewire/Pages/Voucheres.php',
         'App\\Models\\Classes' => __DIR__ . '/../..' . '/app/Models/Classes.php',
         'App\\Models\\FeeRecord' => __DIR__ . '/../..' . '/app/Models/FeeRecord.php',
@@ -648,6 +648,7 @@ class ComposerStaticInitc4703b4cc9fdc21eb570bad8224f5ed2
         'App\\Models\\Student' => __DIR__ . '/../..' . '/app/Models/Student.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Voucher' => __DIR__ . '/../..' . '/app/Models/Voucher.php',
+        'App\\Observers\\UserObserver' => __DIR__ . '/../..' . '/app/Observers/UserObserver.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\View\\Components\\pdf\\installment' => __DIR__ . '/../..' . '/app/View/Components/pdf/installment.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
