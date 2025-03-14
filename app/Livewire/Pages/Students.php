@@ -15,16 +15,31 @@ class Students extends Component
 
     public function mount()
     {
-        $this->users = User::all();
-        $this->students = Student::with('user', 'semester')->get();
+        $user = Auth::user();
+        if ($user->hasRole(['Super Admin', 'Admin'])) {
+            $this->users = User::all();
+            $this->students = Student::with('user', 'semester')->get();
+        } elseif ($user->hasRole('CR')) {
+            // Fetch only the logged-in CR's record
+            $this->users = User::where('id', $user->id)->get();
 
+            // Ensure the CR is linked to students and fetch the first student's semester
+            $student = $user->student()->first();
 
+            // dd($student);
 
-        // dd($data);
-        $this->userId = Auth::user()->id; // Fetch all Students
+            $this->students = Student::with('user', 'semester')
+                ->where('section_id', $student->section_id) // Correcting section relation
+                ->get();
+        } else {
+            $this->users = User::where('id', $user->id)->get();
+            $this->students = Student::with('user', 'semester')->where('user_id', $user->id)->get();
+        }
 
+        // $this->users = User::all();
+        // $this->students = Student::with('user', 'semester')->get();
+        // $this->userId = Auth::user()->id; // Fetch all Students
     }
-
     public function store()
     {
         // dd('hello');

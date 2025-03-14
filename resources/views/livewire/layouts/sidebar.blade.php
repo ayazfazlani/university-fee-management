@@ -125,21 +125,21 @@
               </a>
               <ul class="menu-sub">
                   <li class="menu-item">
-                      <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                      <a href="{{ route('roles.index') }}" class="menu-link" >
                           <i class="bx bx-log-in"></i>
-                          <div class="text-truncate" data-i18n="Login">Login</div>
+                          <div class="text-truncate" data-i18n="Login">Roles</div>
                       </a>
                   </li>
                   <li class="menu-item">
-                      <a href="auth-register-basic.html" class="menu-link" target="_blank">
+                      <a href="{{ route('permissions.index') }}" class="menu-link">
                           <i class="bx bx-user-plus"></i>
-                          <div class="text-truncate" data-i18n="Register">Register</div>
+                          <div class="text-truncate" data-i18n="Register">Permissions</div>
                       </a>
                   </li>
                   <li class="menu-item">
-                      <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
+                      <a href="{{ route('assignRole') }}" class="menu-link">
                           <i class="bx bx-key"></i>
-                          <div class="text-truncate" data-i18n="Forgot Password">Forgot Password</div>
+                          <div class="text-truncate" data-i18n="Forgot Password">Assign Role</div>
                       </a>
                   </li>
               </ul>

@@ -11,6 +11,7 @@
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
+        "maatwebsite/excel": "^3.1",
         "masmerise/livewire-toaster": "^2.6",
         "spatie/laravel-permission": "^6.16"
     },

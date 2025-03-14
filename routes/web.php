@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     return redirect('/login');
   })->name('logout');
 
+  Route::get('/class-members/{semester}/{section}', ClassMembers::class)->name('class-members');
 
   Route::get('/roles', Roles::class)->name('roles.index');
   Route::get('/permissions', Permissions::class)->name('permissions.index');
@@ -62,6 +63,3 @@ Route::group(['middleware' => 'auth'], function () {
 // });
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
-
-
-Route::get('/class-members/{semester}/{section}', ClassMembers::class)->name('class-members');

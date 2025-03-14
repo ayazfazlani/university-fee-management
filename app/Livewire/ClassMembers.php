@@ -2,13 +2,16 @@
 
 namespace App\Livewire;
 
-use App\Models\User;
 use App\Models\Student;
 use App\Models\Voucher;
 use Livewire\Component;
+use App\Exports\ClassVouchersExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ClassVouchersPdfExport;
 
 class ClassMembers extends Component
 {
+
     public $semester_id, $section_id;
     public $students, $voucherDetails;
 
@@ -40,6 +43,16 @@ class ClassMembers extends Component
         $voucher->update(['status' => 'approved']);
 
         $this->dispatch('showAlert', 'success', 'Voucher approved successfully!');
+    }
+
+    public function exportVouchers()
+    {
+        return Excel::download(new ClassVouchersExport($this->section_id, $this->semester_id), 'class_vouchers.xlsx');
+    }
+    public function exportPdf()
+    {
+        $export = new ClassVouchersPdfExport($this->semester_id, $this->section_id);
+        return response()->streamDownload(fn() => print($export->download()->getContent()), 'vouchers.pdf');
     }
     public function close()
     {

@@ -3,12 +3,12 @@
         <!-- Header Section -->
         <div class="col-lg-10 col-md-6 d-flex flex-row flex-wrap gap-4 align-items-center p-2 m-6 mb-0 shadow-sm">
             <!-- Filter Button -->
-            <button type="button" class="btn btn-sm btn-outline-secondary btn-lg mt-5">
-                Filter
-            </button>
             <!-- Add Button -->
-            <button type="button" class="btn btn-sm btn-outline-primary btn-lg mt-5" wire:click="popUp">
-                Add
+            <button type="button" class="btn btn-sm btn-outline-primary btn-lg mt-5" wire:click="exportVouchers">
+                Export To Excel
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-danger btn-lg mt-5" wire:click="exportPdf">
+                Export To PDF
             </button>
         </div>
   
@@ -132,7 +132,9 @@
                             
                             </tbody>
                         </table>
-                        <a href="{{ route('semesters') }}" class="btn btn-sm mt-1 btn-outline-secondary">Back</a>
+                        <a href="{{ route('semesters') }}" class="btn btn-sm m-2 btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i>
+                            Back</a>
                     </div>
                 </div>
             </div>

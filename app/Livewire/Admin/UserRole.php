@@ -15,9 +15,9 @@ class UserRole extends Component
 
     public function mount()
     {
-        if (!auth()->user()->hasRole('super admin')) {
-            abort(403, 'Unauthorized');
-        }
+        // if (!auth()->user()->hasRole('student')) {
+        //     abort(403, 'Unauthorized');
+        // }
 
         $this->loadUsers();
         $this->roles = Role::all();
@@ -50,6 +50,16 @@ class UserRole extends Component
 
         $this->dispatch('showAlert',  'success', 'Role removed successfully!');
         Toaster::success('Role removedsuccessfully!');
+        $this->loadUsers(); // Reload users to update UI
+    }
+
+    public function deleteUser($userId)
+    {
+        $user = User::find($userId);
+        $user->delete(); // Delete the user
+
+        $this->dispatch('showAlert',  'success', 'User deleted successfully!');
+        Toaster::success('User deleted successfully!');
         $this->loadUsers(); // Reload users to update UI
     }
 
