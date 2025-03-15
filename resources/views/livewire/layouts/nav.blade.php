@@ -56,8 +56,18 @@
                                   </div>
                                 </div>
                                 <div class="flex-grow-1">
-                                  <h6 class="mb-0">John Doe</h6>
-                                  <small class="text-muted">Admin</small>
+                                  <h6 class="mb-0">{{Auth::user()->name}}</h6>
+                                  <small class="text-muted">
+                                    @php
+                                      if(Auth::user()->role == 'admin'){
+                                        echo 'Admin';
+                                    }elseif(Auth::user()->role == 'CR'){
+                                        echo 'Class Representative';
+                                    }else{
+                                        echo 'Student';
+                                    }
+                                    @endphp
+                                    </small>
                                 </div>
                               </div>
                             </a>
@@ -66,8 +76,8 @@
                             <div class="dropdown-divider my-1"></div>
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#">
-                              <i class="bx bx-user bx-md me-3"></i><span>My Profile</span>
+                            <a class="dropdown-item" wire:key={{ Auth::user()->id }} wire:navigate href="{{ route('voucher') }}">
+                              <i class="bx bx-user bx-md me-3"></i><span>My Vouchers</span>
                             </a>
                           </li>
                           <li>

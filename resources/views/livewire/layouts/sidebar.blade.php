@@ -78,7 +78,9 @@
 
           <li class="menu-item">
               <a href="{{route('semesters')}}" class="menu-link">
-                  <i class="menu-icon tf-icons bx bx-smile"></i>
+                  <i class="menu-icon tf-icons 
+                  bx bx-calendar-week
+                  "></i>
                   <div class="text-truncate" data-i18n="Doctors">Semesters</div>
               </a>
           </li>
@@ -98,52 +100,43 @@
               <ul class="menu-sub">
                   <li class="menu-item">
                       <a href="{{ route('voucher')}}" class="menu-link">
-                          <i class="bx bx-spreadsheet"></i>
+                        
                           <div class="text-truncate" data-i18n="Fee Structure">Vouchers</div>
                       </a>
                   </li>
-                  <li class="menu-item">
-                      <a href="{{ route('installments')}}" class="menu-link">
-                          <i class="bx bx-calendar-check"></i>
-                          <div class="text-truncate" data-i18n="Installments">Installments</div>
-                      </a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="{{ route('invoices')}}" class="menu-link">
-                          <i class="bx bx-receipt"></i>
-                          <div class="text-truncate" data-i18n="Invoices">Invoices</div>
-                      </a>
-                  </li>
+             
               </ul>
           </li>
       
+          @role(['Super Admin', 'HOD' , 'Admin'])
+            
+      
           <!-- Authentication -->
           <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                  <i class="menu-icon tf-icons bx bx-lock"></i>
-                  <div class="text-truncate" data-i18n="Authentications">Authentications</div>
-              </a>
-              <ul class="menu-sub">
-                  <li class="menu-item">
-                      <a href="{{ route('roles.index') }}" class="menu-link" >
-                          <i class="bx bx-log-in"></i>
-                          <div class="text-truncate" data-i18n="Login">Roles</div>
-                      </a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="{{ route('permissions.index') }}" class="menu-link">
-                          <i class="bx bx-user-plus"></i>
-                          <div class="text-truncate" data-i18n="Register">Permissions</div>
-                      </a>
-                  </li>
-                  <li class="menu-item">
-                      <a href="{{ route('assignRole') }}" class="menu-link">
-                          <i class="bx bx-key"></i>
-                          <div class="text-truncate" data-i18n="Forgot Password">Assign Role</div>
-                      </a>
-                  </li>
-              </ul>
-          </li>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock"></i>
+                <div class="text-truncate" data-i18n="Authentications">Authentications</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('roles.index') }}" class="menu-link" >
+                        <div class="text-truncate" data-i18n="Login">Roles</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('permissions.index') }}" class="menu-link">
+                        <div class="text-truncate" data-i18n="Register">Permissions</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('assignRole') }}" class="menu-link">
+  
+                        <div class="text-truncate" data-i18n="Forgot Password">Assign Role</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        @endrole
       </ul>
       
       </aside>

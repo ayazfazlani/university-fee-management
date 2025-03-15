@@ -19,15 +19,34 @@ class Voucheres extends Component
 
     public function mount()
     {
-        $this->voucheres = Voucher::with('student', 'semester')->get();
-        $this->studentId = Auth::user()->student->id;
-        $this->students = Student::with('user', 'semester')->get();
-        // how to get particular section and sessions semesters 
-        $this->semesters = Semester::where(
-            'section_id',
-            Student::where('user_id', Auth::user()->id)->first()->section_id
-        )->get();
-        // dd($this->studentId);
+        $user = Auth::user();
+        if ($user->hasRole(['Super Admin', 'Admin'])) {
+            $this->voucheres = Voucher::with('student', 'semester')->get();
+            $this->studentId = Auth::user()->student->id;
+            $this->students = Student::with('user', 'semester')->get();
+            // how to get particular section and sessions semesters 
+            $this->semesters = Semester::where(
+                'section_id',
+                Student::where('user_id', Auth::user()->id)->first()->section_id
+            )->get();
+            // dd($this->studentId);
+        } elseif ($user->hasRole('CR')) {
+            $this->voucheres = Voucher::with('student', 'semester')->where('student_id', Auth::user()->student->id)->get();
+            $this->students = Student::with('user', 'semester')->where('user_id', Auth::user()->id)->get();
+            $this->studentId = Auth::user()->student->id;
+            $this->semesters = Semester::where(
+                'section_id',
+                Student::where('user_id', Auth::user()->id)->first()->section_id
+            )->get();
+        } else {
+            $this->voucheres = Voucher::with('student', 'semester')->where('student_id', Auth::user()->student->id)->get();
+            $this->students = Student::with('user', 'semester')->where('user_id', Auth::user()->id)->get();
+            $this->studentId = Auth::user()->student->id;
+            $this->semesters = Semester::where(
+                'section_id',
+                Student::where('user_id', Auth::user()->id)->first()->section_id
+            )->get();
+        }
     }
 
 

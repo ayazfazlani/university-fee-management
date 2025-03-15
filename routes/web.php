@@ -1,28 +1,25 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Pages\Clas;
 use App\Livewire\Admin\Roles;
-use App\Livewire\Pages\Staff;
+use App\Livewire\ClassMembers;
 use App\Livewire\Auth\Register;
 use App\Livewire\Layouts\Index;
 use App\Livewire\Pages\Reports;
-use App\Livewire\Pages\Invoices;
-use App\Livewire\Admin\Permissions;
 use App\Livewire\Admin\UserRole;
-use App\Livewire\Pages\Clas;
+use App\Livewire\Pages\Invoices;
+use App\Livewire\Pages\Students;
+use App\Livewire\Pages\Sectiones;
+use App\Livewire\Pages\Semesters;
+use App\Livewire\Pages\Sessiones;
+use App\Livewire\Pages\Voucheres;
+use App\Livewire\Admin\Permissions;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\InvoiceSystem\Installment;
 use App\Livewire\InvoiceSystem\FeeStructure;
 use App\Livewire\InvoiceSystem\AdminInstallments;
-use App\Livewire\Pages\Sectiones;
-use App\Livewire\Pages\Semesters;
-use App\Livewire\Pages\Sessiones;
-use App\Livewire\Pages\Students;
-use App\Livewire\Pages\Voucheres;
-
-use App\Livewire\ClassMembers;
-use App\Models\Student;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -51,12 +48,16 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/class-members/{semester}/{section}', ClassMembers::class)->name('class-members');
 
-  Route::get('/roles', Roles::class)->name('roles.index');
-  Route::get('/permissions', Permissions::class)->name('permissions.index');
-  Route::get('/assign', UserRole::class)->name('assignRole');
+
   Route::get('/voucher', Voucheres::class)->name('voucher');
 });
 // auth 
+
+Route::group(['middleware' => 'role:Super admin | Admin'], function () {
+  Route::get('/roles', Roles::class)->name('roles.index');
+  Route::get('/permissions', Permissions::class)->name('permissions.index');
+  Route::get('/assign', UserRole::class)->name('assignRole');
+});
 
 // Route::get('/login', function () {
 //   return view('livewire.auth.login');
