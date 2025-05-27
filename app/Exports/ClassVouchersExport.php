@@ -29,7 +29,7 @@ class ClassVouchersExport implements FromCollection, WithHeadings, ShouldAutoSiz
 
     public function headings(): array
     {
-        return ['ID', 'Student Name', 'Roll Number', 'Semester', 'Amount', 'Status', 'Payment Date'];
+        return ['ID', 'Student Name', 'Roll Number', 'Semester', 'Amount', 'Status', 'Submit Date'];
     }
 
     public function map($voucher): array

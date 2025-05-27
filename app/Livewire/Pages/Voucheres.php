@@ -20,7 +20,7 @@ class Voucheres extends Component
     public function mount()
     {
         $user = Auth::user();
-        if ($user->hasRole(['Super Admin', 'Admin'])) {
+        if ($user->hasRole(['Super Admin', 'Admin', 'HOD'])) {
             $this->voucheres = Voucher::with('student', 'semester')->get();
             $this->studentId = Auth::user()->student->id;
             $this->students = Student::with('user', 'semester')->get();

@@ -53,14 +53,12 @@ Route::group(['middleware' => 'auth'], function () {
 });
 // auth 
 
-Route::group(['middleware' => 'role:Super admin | Admin'], function () {
-  Route::get('/roles', Roles::class)->name('roles.index');
-  Route::get('/permissions', Permissions::class)->name('permissions.index');
-  Route::get('/assign', UserRole::class)->name('assignRole');
-});
 
-// Route::get('/login', function () {
-//   return view('livewire.auth.login');
-// });
+Route::get('/roles', Roles::class)->name('roles.index');
+Route::get('/permissions', Permissions::class)->name('permissions.index');
+Route::get('/assign', UserRole::class)->name('assignRole');
+
+
+
 Route::get('/login', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');

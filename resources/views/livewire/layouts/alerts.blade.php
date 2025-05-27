@@ -1,9 +1,5 @@
-<div
-    x-data="{ show: @entangle('visible') }"
-    x-show="show"
-    x-transition
-    x-init="$wire.on('alert:hide', () => { setTimeout(() => show = false, 5000); })"
-    class="fixed-alerts alert 
+<div x-data="{ show: @entangle('visible') }" x-show="show" x-transition
+    x-init="$wire.on('alert:hide', () => { setTimeout(() => show = false, 5000); })" class="fixed-alerts alert 
         @if ($type == 1) 
             alert-success 
         @elseif ($type == 2) 
@@ -23,10 +19,7 @@
         @endif
         alert-dismissible
         
-         "
-    role="alert"
-    style="display: none;"
->
+         " role="alert" style="display: none;">
     <span class="block">{{ $message }}</span>
     <button type="button" class="btn-close" @click="show = false" aria-label="Close"></button>
 </div>

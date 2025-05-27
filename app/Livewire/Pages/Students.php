@@ -94,6 +94,14 @@ class Students extends Component
         $this->mount(); // Refresh data
     }
 
+    public function approve($id)
+    {
+        $Student = Student::find($id);
+        $Student->update([
+            'status' => 1
+        ]);
+        $this->mount(); // Refresh data
+    }
     public function delete($id)
     {
         Student::find($id)->delete();

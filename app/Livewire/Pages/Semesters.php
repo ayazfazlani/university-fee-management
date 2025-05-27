@@ -3,9 +3,10 @@
 namespace App\Livewire\Pages;
 
 use App\Models\Section;
-use App\Models\Semester;
 use Livewire\Component;
+use App\Models\Semester;
 use Masmerise\Toaster\Toaster;
+use Illuminate\Support\Facades\Auth;
 
 class Semesters extends Component
 {
@@ -14,9 +15,19 @@ class Semesters extends Component
 
     public function mount()
     {
-        $this->sessions = Section::all(); // Fetch all branches
-        $this->semesters = Semester::with('section')->get(); // Fetch all doctors
+        if (Auth::user()->hasRole(['Admin', 'Super Admin', 'HOD'])) {
+            $this->sessions = Section::all();
+            // dd(Auth::user()->student->section->sesion->id);
 
+            $this->semesters = Semester::with('section')->get();
+        } elseif (Auth::user()->hasRole('CR')) {
+            $this->sessions = Section::all();
+            // dd($this->sessions);
+            $this->semesters = Semester::with('section')->where('section_id', Auth::user()->student->section->id)->get();
+        } else {
+            $this->sessions = [];
+            $this->semesters = [];
+        }
     }
 
     public function store()
