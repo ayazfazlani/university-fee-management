@@ -29,6 +29,9 @@ class RolePermissionSeeder extends Seeder
 
         $adminRole = Role::firstOrCreate(['name' => 'Admin']);
         $branchAdminRole = Role::firstOrCreate(['name' => 'Branch Admin']);
+        Role::firstOrCreate(['name' => 'Student']);
+        Role::firstOrCreate(['name' => 'HOD']);
+        Role::firstOrCreate(['name' => 'CR']);
 
         $adminRole->givePermissionTo($permissions);
         $branchAdminRole->givePermissionTo([
@@ -40,7 +43,7 @@ class RolePermissionSeeder extends Seeder
 
         $adminUser = \App\Models\User::find(1);
         if ($adminUser) {
-            $adminUser->assignRole('admin');
+            $adminUser->assignRole('Admin');
         }
     }
 }
